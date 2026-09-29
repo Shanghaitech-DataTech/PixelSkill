@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#f4f8f6"/>
+  <path d="M860 0h740v900H860z" fill="#d9efeb"/>
+  <path d="M0 0h12v900H0z" fill="#1a9fbf"/>
+
+  <text x="88" y="104" fill="#18343b" font-family="DejaVu Sans, Arial, sans-serif" font-size="34" font-weight="700">PixelSkill</text>
+  <text x="88" y="165" fill="#168392" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2">PIXEL ART FOR CODING AGENTS</text>
+
+  <text x="88" y="304" fill="#18343b" font-family="DejaVu Sans, Arial, sans-serif" font-size="82" font-weight="700">A prompt.</text>
+  <text x="88" y="402" fill="#18343b" font-family="DejaVu Sans, Arial, sans-serif" font-size="82" font-weight="700">A pixel world.</text>
+  <text x="90" y="490" fill="#456067" font-family="DejaVu Sans, Arial, sans-serif" font-size="27">Turn a short description into clear,</text>
+  <text x="90" y="531" fill="#456067" font-family="DejaVu Sans, Arial, sans-serif" font-size="27">layered pixel art at native resolution.</text>
+
+  <path d="M90 610h650" stroke="#bed5d1" stroke-width="2"/>
+  <text x="90" y="668" fill="#18343b" font-family="DejaVu Sans, Arial, sans-serif" font-size="31" font-weight="700">128 × 128</text>
+  <text x="337" y="668" fill="#18343b" font-family="DejaVu Sans, Arial, sans-serif" font-size="31" font-weight="700">6 layers</text>
+  <text x="548" y="668" fill="#18343b" font-family="DejaVu Sans, Arial, sans-serif" font-size="31" font-weight="700">49 colors</text>
+  <text x="90" y="743" fill="#cb5149" font-family="DejaVu Sans, Arial, sans-serif" font-size="21" font-weight="700" letter-spacing="1.5">GPT-6 ASTRA  ·  SUMMER SEASIDE</text>
+  <text x="90" y="802" fill="#456067" font-family="DejaVu Sans, Arial, sans-serif" font-size="22">Watch a model build the scene line by line.</text>
+
+  <image href="summer-seaside.png" x="944" y="112" width="560" height="560" image-rendering="pixelated"/>
+  <text x="944" y="744" fill="#18343b" font-family="DejaVu Sans, Arial, sans-serif" font-size="25" font-weight="700">SUMMER SEASIDE</text>
+  <text x="944" y="785" fill="#456067" font-family="DejaVu Sans, Arial, sans-serif" font-size="19">Six layers · 1,269 drawing calls · 49 colors</text>
+</svg>

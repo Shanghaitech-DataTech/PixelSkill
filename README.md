@@ -1,18 +1,23 @@
-# Astra Pixel Art
+# PixelSkill
 
-An agent skill for drawing pixel art. The agent writes short Python
-snippets, the drawing accumulates, and it exports PNG files at **1× and 4×**.
+Create crisp, grid-aligned pixel art with a coding agent. PixelSkill turns a
+short description into a layered illustration and exports the finished artwork
+as a native-size PNG and a **4×** preview. It runs on standard Python without
+installing packages.
 
-Nothing to install: no virtualenv, no packages, no server process. The engine
-is standard-library Python, so it runs in sandboxes that have no network and
-no way to install anything.
+[![GPT-6 Astra draws a summer seaside scene](promo/pixelskill-beach-poster.png)](promo/pixelskill-beach-demo.mp4)
+
+## Example
+
+GPT-6 Astra created this **128×128 summer seaside** scene in six layers with
+49 colors. [Watch the drawing process](promo/pixelskill-beach-demo.mp4).
 
 ## Install
 
 ```bash
-git clone https://github.com/Ori-Replication/astra-pixel-art-skill.git
+git clone https://github.com/Shanghaitech-DataTech/PixelSkill.git
 mkdir -p ~/.agents/skills
-cp -r astra-pixel-art-skill/skills/astra-pixel-art ~/.agents/skills/
+cp -r PixelSkill/skills/astra-pixel-art ~/.agents/skills/
 # Claude Code does not read ~/.agents/skills; give it a link
 mkdir -p ~/.claude/skills
 ln -sfn ~/.agents/skills/astra-pixel-art ~/.claude/skills/astra-pixel-art
@@ -26,33 +31,6 @@ Then just ask for pixel art — the skill triggers on its own.
 
 ## What you get
 
-```bash
-$ PA=~/.agents/skills/astra-pixel-art/scripts/pixelart.py
-$ python3 "$PA" exec <<'PY'
-sky = new_canvas(64, 64, "#1b2a4a")
-moon = new_canvas(64, 64)
-moon.circle(30, 22, 10, "#f4f1de")
-moon.circle(35, 19, 9, None)        # None erases -> crescent
-final = flatten([sky, moon], name="night")
-save("night")
-PY
-step 1 ok | canvases: c1 64x64, c2 64x64, night 64x64*
-files:
-  .../exports/night.png
-  .../exports/night@4x.png
-  .../exports/night.pixelart.json
-```
-
-A PNG at the drawing's real size, a 4× copy to look at, and a state file that
-reloads. `view()` renders a preview for a vision model to read.
-
-## Which model
-
-**GPT-6 Astra** is the recommendation. **Gemini 3.8 Flash** is a step down,
-and still produces usable pixel art.
-
-## What's inside
-
 - **Canvases are layers.** Draw each element on its own canvas, then
   `flatten([...])` them. Export is `save("name")` — 1× and 4× PNG.
 - **Pixels, rectangles, circles, ellipses, polygons, lines, flood fill,
@@ -62,12 +40,8 @@ and still produces usable pixel art.
   with no SVG renderer and nothing to install. `outline()` rims a sprite so
   it reads on any background. Alpha compositing across layers, PNG import,
   and an indexed-PNG export mode. `pixelart help` lists it all.
-- **The state is a log, not a process.** Each step is appended to
-  `pixelart/session.jsonl` and replayed to rebuild the drawing, so variables
-  and canvases survive between commands with no daemon to keep alive: a crash
-  loses nothing, and `undo` is durable.
-- **A failed step changes nothing.** It is never appended, so it cannot leave
-  half a shape behind.
+- **Portable by design.** The drawing engine uses standard Python and creates
+  PNG artwork without a server or third-party runtime packages.
 
 The reasoning behind the design, and what was rejected, is in
 [AGENTS.md](AGENTS.md).
